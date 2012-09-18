@@ -26,7 +26,7 @@ class School(models.Model):
     class Meta:
         db_table = 'school'
         
-    
+'''     
     
 class Student(models.Model):
     student_id = models.AutoField(primary_key=True)
@@ -103,10 +103,4 @@ class Course(models.Model):
         db_table = 'course'
         
     
-
-admin.site.register(School)
-admin.site.register(Student)
-admin.site.register(Report)
-admin.site.register(Bill)
-admin.site.register(Teacher)
-admin.site.register(Course)
+'''
