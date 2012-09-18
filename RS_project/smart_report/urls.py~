@@ -1,3 +1,6 @@
 from djongo.conf.urls.defaults import *
 
-urlpatterns=patterns('',)
+urlpatterns = patterns('',
+    url(r'^$', 'smart_project.views.home'),
+   
+)
