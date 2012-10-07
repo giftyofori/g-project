@@ -1,5 +1,5 @@
 # Django settings for verifyProject project.
-#import south
+import south
 import os
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 
@@ -125,8 +125,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'smart_report',
     'django.contrib.admin',
-    #'south',
-    'dj_simple_sms',
+    'south',
+    #'dj_simple_sms',
     
 
     # Uncomment the next line to enable the admin:
