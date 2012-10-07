@@ -1,0 +1,199 @@
+
+<html>
+	<head>
+		<meta charset="utf-8">
+    <title>VeryFi</title>
+    <link rel="icon" href="/static/bootstrap/img/favicon.ico"  sizes="16x16" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Code to Call styles from bootstrap -->
+
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+		<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css"/>	
+		
+ <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="http://veryfi.herokuapp.com/verify/">VeryFi</a>
+          <div class="btn-group pull-right"></div>        
+         
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Search</a></li>
+            </ul>
+          <div class="active item"></div>
+        </div>
+			<div class="nav-collapse">
+			    <ul class="nav">
+			      <li class="active">
+				<a href="http://fblazer.blogspot.com" target= "_blank">Blog</a>
+				
+				</li>
+			    </ul>
+			  </div><!--/.nav-collapse -->
+			<div class="nav-collapse">
+			    <ul class="nav">
+			      <li class="active">
+				<a href="http://mayakiincprofile.blogspot.com/" target= "_blank">About us</a>
+				
+				</li>
+			    </ul>
+			  </div><!--/.nav-collapse -->
+                          <div class="nav-collapse">
+			    <ul class="nav">
+			      <li class="active">
+				<a href="http://mayakiinchelp.blogspot.com" target= "_blank">Help and Contact</a>
+				
+				</li>
+			    </ul>
+			  </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+</div>
+	</head>
+
+<body>
+	<form class="well form-inline"action="/verify/search/" method="post">	
+
+          <div class="controls">
+
+              <div class="input-append">
+                <input class="span5" id='appendedInputButton' size="1" "height=50px width=400px type="text"name="search_product"><button class="btn btn-primary " input type="submit" value="Submit">        &nbsp; &nbsp; &nbsp;<i class="icon-ok"></i>&nbsp; &nbsp; &nbsp</button></form>
+                
+   
+
+{%block content%}
+   
+
+
+
+
+
+
+  
+
+
+
+      <footer>
+
+
+
+
+
+
+
+
+        <!-- /container <p>&copy; Moses Obeng 2012</p>-->
+      </footer>
+
+	  Search Results for : {{search_product}}	   
+    </div> <!-- /container -->
+
+</div>
+
+   
+
+ 
+<div class="span4">
+        <p><h5>Verify Product Details</h5></p>
+
+{%if exist == 'False'%}
+
+<b style="color:#FF66FF">{{search_product}} </b>
+May be <b style="color:#FF66FF"> FAKE </b>call FDB on \n 0302233200 or 0302229261  or check spelling and try again
+</br>
+
+
+{%else%}
+
+	{%for post in posts%}
+		{%if post.dosage_form == ''%}
+		<h3 style="color:#FF66FF">	{{post.product_name}}</h3>
+		
+		FDB number:&nbsp;&nbsp;&nbsp; <b style="color:#FF66FF">	{{post.FDB_number}} </b>
+		</br>
+		Manufacturer: &nbsp;&nbsp; {{post.manu_location}}
+		</br></br>
+		
+		{%else%}
+		<h3 style="color:#FF66FF">{{post.product_name}}</h3>
+		Generic:{{post.Generic_name}}
+		</br>
+		Strength:{{post.strength}} 
+		</br>
+		Dosage:{{post.dosage_form}} 
+		</br>
+		Applicant:{{post.applicant}}
+		</br>
+		Manufacturer:{{post.manufacturer}} 
+		</br>
+		Local Agent:{{post.local_agent}} 
+		</br>
+		Expiry Date:{{post.expiry_date}}
+		</br>
+		</br>
+	
+		{%endif%}
+	{%endfor%}  
+{%endif%}
+{%endblock%}   
+ </div>  
+      
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/bootstrap-transition.js"></script>
+    <script src="../assets/js/bootstrap-alert.js"></script>
+    <script src="../assets/js/bootstrap-modal.js"></script>
+    <script src="../assets/js/bootstrap-dropdown.js"></script>
+    <script src="../assets/js/bootstrap-scrollspy.js"></script>
+
+    <script src="../assets/js/bootstrap-tab.js"></script>
+    <script src="../assets/js/bootstrap-tooltip.js"></script>
+    <script src="../assets/js/bootstrap-popover.js"></script>
+    <script src="../assets/js/bootstrap-button.js"></script>
+    <script src="../assets/js/bootstrap-collapse.js"></script>
+    <script src="../assets/js/bootstrap-carousel.js"></script>
+
+    <script src="../assets/js/bootstrap-typeahead.js"></script>
+
+		
+
+		
+	</body>
+</html>

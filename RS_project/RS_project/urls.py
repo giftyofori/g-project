@@ -24,6 +24,9 @@ urlpatterns = patterns('',
         'document_root' : settings.STATIC_ROOT,
     }),
     
-    url(r'^sms/',include(dj_simple_sms.urls))
+    url(r'^sms/',include(dj_simple_sms.urls)),
+
+    url(r'^/home', 'smart_report.views.home'),
+    #url(r'smartreport' , include('smart_report.urls'))
     
 )

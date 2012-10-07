@@ -10,20 +10,23 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'verifyProject.views.home', name='home'),
     # url(r'^verifyProject/', include('verifyProject.foo.urls')),
-    url(r'^verify/', include('verify.urls')),
-    url(r'^verify/search/(?P<term>.*?)$', 'verify.views.search'),
+    #url(r'^verify/', include('verify.urls')),
+    #url(r'^verify/search/(?P<term>.*?)$', 'verify.views.search'),
 
 
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-    url(r'^nimda/', include(admin.site.urls)),
+    url(r'^admin/', include(admin.site.urls)),
     
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {
         'document_root' : settings.STATIC_ROOT,
     }),
     
-    url(r'^sms/',include(dj_simple_sms.urls))
+    url(r'^sms/',include(dj_simple_sms.urls)),
+
+    url(r'^/home', 'smart_report.views.home'),
+    url(r'smartreport' , include('smart_report.urls'))
     
 )

@@ -17,6 +17,22 @@ class Teacher(models.Model):
 
     class Meta:
         db_table = 'teacher'
+
+class Bill(models.Model):
+    amnt_paid = models.IntegerField(max_length=10)
+    amnt_due =models.IntegerField(max_length=10)
+    balance = models.IntegerField(max_length=10)
+    message = models.TextField(max_length= 60)
+    #student = models.ManyToManyField(Student)
+
+
+    def __unicode__(self):
+        return self.amnt_paid
+
+
+    class Meta:
+        db_table = 'bill'
+
        
 class Course(models.Model):
     # calculates the number of course entered
@@ -66,6 +82,7 @@ class Student(models.Model):
     class_name = models.CharField(max_length= 20)
     guardian_contact = models.CharField(max_length= 100)
     to_courses = models.ForeignKey(Course, related_name = 'for_couses')
+    bill = models.ForeignKey(Bill, related_name = 'bill')
     
     
    
@@ -77,20 +94,6 @@ class Student(models.Model):
         ordering = ['first_Name'] #odering by student_name ascending
 
 
-class Bill(models.Model):
-    amnt_paid = models.IntegerField(max_length=10)
-    amnt_due =models.IntegerField(max_length=10)
-    balance = models.IntegerField(max_length=10)
-    message = models.TextField(max_length= 60)
-    #student = models.ManyToManyField(Student)
-
-
-    def __unicode__(self):
-        return self.amnt_paid
-
-
-    class Meta:
-        db_table = 'bill'
 
 class School(models.Model):
     TYPE_OF_SCHOOL =(
@@ -109,6 +112,7 @@ class School(models.Model):
     conctact = models.IntegerField(max_length = 14)
     email = models.EmailField(max_length = 75, blank = True) 
     url = models.URLField(max_length = 200,blank = True,verify_exists=False)
+
 
     def __unicode__ (self):
         return (self.school_name)

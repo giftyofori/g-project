@@ -6,7 +6,7 @@ from django.contrib import admin
 class Teacher(models.Model):
     name = models.CharField(max_length= 100)
     classes = models.CharField(max_length = 20)
-    course = models.CharField('Student',max_length = 100)
+    course = models.CharField('Subject',max_length = 100)
     #school = models.ForeignKey(School)
     #student = models.ManyToManyField(Student,related_name = 'teachers')
     
@@ -66,6 +66,7 @@ class Student(models.Model):
     class_name = models.CharField(max_length= 20)
     guardian_contact = models.CharField(max_length= 100)
     to_courses = models.ForeignKey(Course, related_name = 'for_couses')
+    bill = models.ForeignKey(Bill, related_name = 'bill')
     
     
    
@@ -109,6 +110,7 @@ class School(models.Model):
     conctact = models.IntegerField(max_length = 14)
     email = models.EmailField(max_length = 75, blank = True) 
     url = models.URLField(max_length = 200,blank = True,verify_exists=False)
+
 
     def __unicode__ (self):
         return (self.school_name)
