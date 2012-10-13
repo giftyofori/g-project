@@ -67,6 +67,9 @@ STATIC_ROOT = 'static/'
 # Example: "http://media.lawrence.com/static/"
 STATIC_URL = '/static/'
 
+AUTH_PROFILE_MODULE = 'Accounts.UserProfile'
+
+
 # Additional locations of static files
 STATICFILES_DIRS = (
     os.path.join(SITE_ROOT,'assets'),
@@ -126,6 +129,7 @@ INSTALLED_APPS = (
     'smart_report',
     'django.contrib.admin',
     'south',
+	'Accounts'
     #'dj_simple_sms',
     
 

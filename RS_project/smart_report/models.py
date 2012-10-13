@@ -111,7 +111,7 @@ class School(models.Model):
     population = models.IntegerField(blank = True)
     conctact = models.IntegerField(max_length = 14)
     email = models.EmailField(max_length = 75, blank = True) 
-    url = models.URLField(max_length = 200,blank = True,verify_exists=False)
+    url = models.URLField(max_length = 200,blank = True)
 
 
     def __unicode__ (self):

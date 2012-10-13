@@ -26,7 +26,8 @@ urlpatterns = patterns('',
     
     url(r'^sms/',include(dj_simple_sms.urls)),
 
-    url(r'^/home', 'smart_report.views.home'),
+    url(r'^home/', 'smart_report.views.home'),
     #url(r'smartreport' , include('smart_report.urls'))
+	url(r'^accounts/', include('Accounts.urls'))
     
 )

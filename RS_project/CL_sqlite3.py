@@ -1,7 +1,12 @@
+# Allow users to ececute SQL commands for python-sqlitee3 white the execute()
+# fuction
+
+
 import sqlite3
 database = raw_input('Enter the name of db with name.db\n')
 conn = sqlite3.connect(database)#(":memory:")
-conn.isolation_level = None
+conn.isol
+ation_level = None
 cur = conn.cursor()
 
 
